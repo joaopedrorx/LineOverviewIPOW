@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Perdas Industriais | IPE & IPOW</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Monitoramento de Linha & Custos</h1>
+        <p>Dashboard de Performance Industrial e Impacto Financeiro (IPE & IPOW)</p>
+    </header>
+
+    <div class="grid-container">
+        
+        <!-- PARTE 1: FINANCEIRO -->
+        <div class="card financial" style="grid-column: 1 / -1;">
+            <h2>Parâmetros Financeiros <span>Custos Unitários</span></h2>
+            <div class="grid-container" style="margin:0; padding:0; box-shadow:none; gap:15px; max-width:100%;">
+                
+                <div class="form-group">
+                    <label>Líquido (R$/HL)</label>
+                    <input type="number" id="cost_liquid" class="money-input" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label>Garrafa Unit. (R$)</label>
+                    <input type="number" id="cost_bottle" class="money-input" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label>Tampa Unit. (R$)</label>
+                    <input type="number" id="cost_cap" class="money-input" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label>Cartão Unit. (R$)</label>
+                    <input type="number" id="cost_card" class="money-input" placeholder="0.00">
+                    <span class="helper">Uso: 4 cartões / caixa de 24</span>
+                </div>
+
+            </div>
+            <label style="margin-top:10px;">Rótulos (Kit Completo)</label>
+            <div class="form-row-3">
+                <div class="form-group">
+                    <label style="font-size:0.75rem">Neck (R$)</label>
+                    <input type="number" id="cost_label_neck" class="money-input" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label style="font-size:0.75rem">Front (R$)</label>
+                    <input type="number" id="cost_label_front" class="money-input" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label style="font-size:0.75rem">Back (R$)</label>
+                    <input type="number" id="cost_label_back" class="money-input" placeholder="0.00">
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Contadores Gerais -->
+        <div class="card">
+            <h2>Processo Cerveja <span>Flowmeters</span></h2>
+            <div class="form-group">
+                <label>Contador Inicial (HL)</label>
+                <input type="number" id="cont_ini" placeholder="0">
+            </div>
+            <div class="form-group">
+                <label>Contador Final (HL)</label>
+                <input type="number" id="cont_fim" placeholder="0">
+            </div>
+        </div>
+
+        <!-- 2. Garafas Vazias (Início) -->
+        <div class="card">
+            <h2>Área Seca <span>DPL & EBI</span></h2>
+            <div class="form-group">
+                <label>Despaletizadora (Garrafas)</label>
+                <input type="number" id="dpl_in">
+            </div>
+            <hr style="border:0; border-top:1px dashed #ddd; margin: 10px 0;">
+            <label>EBI (Inspetor Vazias)</label>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Processadas</label>
+                    <input type="number" id="ebi_proc">
+                </div>
+                <div class="form-group">
+                    <label>Produzidas (OK)</label>
+                    <input type="number" id="ebi_prod">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Expulsas (EBI)</label>
+                <input type="number" id="ebi_rej" style="border-color: #ffccbc;">
+            </div>
+        </div>
+
+        <!-- 3. Garrafas Cheia (Envasamento) -->
+        <div class="card">
+            <h2>Envasamento <span>ECH & InsptECH</span></h2>
+            <div class="form-group">
+                <label>Enchedora (Garrafas Envasadas)</label>
+                <input type="number" id="ech_env">
+            </div>
+            <hr style="border:0; border-top:1px dashed #ddd; margin: 10px 0;">
+            <label>InsptECH (Inspetor Cheias)</label>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Processadas</label>
+                    <input type="number" id="insp_proc">
+                </div>
+                <div class="form-group">
+                    <label>Produzidas (OK)</label>
+                    <input type="number" id="insp_prod">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Expulsas (InsptECH)</label>
+                <input type="number" id="insp_rej" style="border-color: #ffccbc;">
+            </div>
+        </div>
+
+        <!-- 4. Rotulagem -->
+        <div class="card">
+            <h2>Rotulagem <span>ROT 1 & 2</span></h2>
+            <div class="form-row">
+                <!-- ROT 1 -->
+                <div>
+                    <label style="color:var(--primary)">ROTULADORA 1</label>
+                    <div class="form-group">
+                        <label>Processadas</label>
+                        <input type="number" id="rot1_proc">
+                    </div>
+                    <div class="form-group">
+                        <label>Produzidas</label>
+                        <input type="number" id="rot1_prod">
+                    </div>
+                    <div class="form-group">
+                        <label>Expulsas</label>
+                        <input type="number" id="rot1_rej">
+                    </div>
+                </div>
+                <!-- ROT 2 -->
+                <div>
+                    <label style="color:var(--primary)">ROTULADORA 2</label>
+                    <div class="form-group">
+                        <label>Processadas</label>
+                        <input type="number" id="rot2_proc">
+                    </div>
+                    <div class="form-group">
+                        <label>Produzidas</label>
+                        <input type="number" id="rot2_prod">
+                    </div>
+                    <div class="form-group">
+                        <label>Expulsas</label>
+                        <input type="number" id="rot2_rej">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Empacotamento -->
+        <div class="card">
+            <h2>Empacotamento <span>EPC 1 & 2</span></h2>
+            
+            <div class="form-group">
+                <label>EPC 1 (Saída em Pacotes)</label>
+                <input type="number" id="epc1_packs">
+                <span class="helper">Fator: x6 garrafas</span>
+            </div>
+
+            <div class="form-group">
+                <label>EPC 2 (Saída em Caixas)</label>
+                <input type="number" id="epc2_packs">
+                <span class="helper">Fator: x24 garrafas</span>
+            </div>
+        </div>
+
+        <!-- 6. Fim de Linha -->
+        <div class="card">
+            <h2>Paletização <span>PAL & ENV</span></h2>
+            <div class="form-group">
+                <label>Paletizadora (Pacotes Paletizados)</label>
+                <input type="number" id="pal_packs">
+            </div>
+            <div class="form-group">
+                <label>Envolvedora (Paletes Prontos)</label>
+                <input type="number" id="env_pallets">
+                <span class="helper">Fator: x2016 garrafas</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="actions-bar">
+        <button class="btn btn-secondary" onclick="carregarExemplo()">Carregar Dados de Exemplo</button>
+        <button class="btn btn-primary" onclick="calcularTudo()">CALCULAR IPE & IPOW</button>
+    </div>
+
+    <!-- PAINEL DE RESULTADOS -->
+    <div id="results-panel">
+        
+        <!-- Área de Alertas Lógicos -->
+        <div id="alert-section"></div>
+
+        <!-- KPIs Principais -->
+        <div class="kpi-grid">
+            <div class="kpi-box financial">
+                <div class="kpi-label">Perda Financeira Total</div>
+                <div class="kpi-value" id="kpi-fin-total">R$ 0,00</div>
+                <div class="kpi-unit">Custo Operacional Direto</div>
+            </div>
+            <div class="kpi-box highlight">
+                <div class="kpi-label">Volume Perdido (IPE)</div>
+                <div class="kpi-value" id="kpi-ipe">0,00</div>
+                <div class="kpi-unit">Hectolitros (HL)</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-label">Perda OneWay (IPOW)</div>
+                <div class="kpi-value" id="kpi-ipow">0</div>
+                <div class="kpi-unit">Garrafas Totais</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-label">Eficiência Líquida</div>
+                <div class="kpi-value" id="kpi-efi">0%</div>
+                <div class="kpi-unit">Aproveitamento</div>
+            </div>
+        </div>
+
+        <div class="grid-container" style="margin:0; max-width:100%;">
+            
+            <!-- Tabela de Quebras (Gaps) -->
+            <div class="table-container">
+                <h3 style="padding:15px; margin:0; border-bottom:1px solid #eee; color:var(--primary);">Detalhamento de Perdas (Física + Financeira)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Trecho da Linha</th>
+                            <th>Garrafas Perdidas</th>
+                            <th>Volume (HL)</th>
+                            <th>Itens Perdidos</th>
+                            <th>Custo Estimado (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gap-table-body"></tbody>
+                </table>
+            </div>
+
+            <!-- Tabela de Refugos -->
+            <div class="table-container">
+                <h3 style="padding:15px; margin:0; border-bottom:1px solid #eee; color:var(--primary);">Detalhamento de Refugos (Expulsão)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Equipamento</th>
+                            <th>Qtd. Expulsa</th>
+                            <th>Volume (HL)</th>
+                            <th>Custo Estimado (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rej-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link para o arquivo Javascript externo -->
+    <script src="js/script.js" defer></script>
+</body>
+</html>
