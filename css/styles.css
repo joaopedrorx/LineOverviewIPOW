@@ -1,16 +1,16 @@
 :root {
-    --primary: #1a1a1a;
-    --secondary: #ffc400;
-    --accent: #d4af37;
-    --bg-body: #000000;
-    --bg-card: #ffffff;
-    --text-main: #333333;
-    --text-light: #888888;
+    --primary: #FFC400;
+    --secondary: #FFFFFF;
+    --accent: #FFC400;
+    --bg-body: #1a1a1a;
+    --bg-card: #333333;
+    --text-main: #FFFFFF;
+    --text-light: #CCCCCC;
     --danger: #e74c3c;
     --warning: #ffc400;
     --success: #2ecc71;
-    --money: #e74c3c;
-    /* Cor para dinheiro perdido - Vermelho */
+    --money: #FFC400;
+    /* Cor para dinheiro perdido - Amarelo */
     --border-r: 8px;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -21,7 +21,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
     margin: 0;
@@ -34,7 +34,7 @@ body {
     margin-bottom: 30px;
     padding: 20px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
+    color: black;
     border-radius: var(--border-r);
     box-shadow: var(--shadow);
 }
@@ -43,12 +43,14 @@ body {
     margin: 0;
     font-size: 1.8rem;
     font-weight: 600;
+    color: #000;
 }
 
 .header p {
     margin: 5px 0 0;
     opacity: 0.9;
     font-size: 0.9rem;
+    color: #000;
 }
 
 /* Grid Layout */
@@ -65,19 +67,17 @@ body {
     border-radius: var(--border-r);
     padding: 20px;
     box-shadow: var(--shadow);
-    border-top: 4px solid var(--secondary);
 }
 
 .card.financial {
-    border-top-color: var(--money);
-    background-color: #f9fff9;
+    background-color: var(--bg-card);
 }
 
 .card h2 {
     font-size: 1.1rem;
     color: var(--primary);
     margin-top: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #555;
     padding-bottom: 10px;
     margin-bottom: 15px;
     display: flex;
@@ -86,20 +86,20 @@ body {
 }
 
 .card.financial h2 {
-    color: var(--money);
+    color: var(--primary);
 }
 
 .card h2 span {
     font-size: 0.8rem;
-    background: #e3f2fd;
+    background: #444;
     padding: 2px 8px;
     border-radius: 10px;
     color: var(--secondary);
 }
 
 .card.financial h2 span {
-    background: #e8f5e9;
-    color: var(--money);
+    background: #444;
+    color: var(--primary);
 }
 
 /* Form Elements */
@@ -130,7 +130,9 @@ label {
 input[type="number"] {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #555;
+    background-color: #222;
+    color: var(--text-main);
     border-radius: 4px;
     font-size: 1rem;
     transition: border 0.3s;
@@ -138,7 +140,7 @@ input[type="number"] {
 
 input[type="number"]:focus {
     border-color: var(--secondary);
-    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 196, 0, 0.1);
 }
 
 .helper {
@@ -149,8 +151,8 @@ input[type="number"]:focus {
 }
 
 .money-input {
-    border-color: #a5d6a7 !important;
-    color: #1b5e20;
+    border-color: var(--primary) !important;
+    color: var(--primary);
     font-weight: bold;
 }
 
@@ -178,18 +180,19 @@ input[type="number"]:focus {
 }
 
 .btn-primary {
-    background-color: var(--success);
-    color: white;
+    background-color: var(--primary);
+    color: #000;
 }
 
 .btn-secondary {
-    background-color: #607d8b;
+    background-color: #555;
     color: white;
 }
 
 /* Results Section */
 #results-panel {
     display: none;
+    background: var(--bg-card);
     /* Hidden by default */
     max-width: 1400px;
     margin: 0 auto 50px auto;
@@ -216,7 +219,7 @@ input[type="number"]:focus {
 }
 
 .kpi-box {
-    background: white;
+    background: var(--bg-card);
     padding: 20px;
     border-radius: var(--border-r);
     text-align: center;
@@ -224,14 +227,13 @@ input[type="number"]:focus {
     border-left: 5px solid var(--primary);
 }
 
-.kpi-box.highlight {
-    border-left-color: var(--danger);
-    background: #fff5f5;
+.kpi-box.highlight .kpi-value {
+    color: var(--danger);
 }
 
 .kpi-box.financial {
     border-left-color: var(--money);
-    background: #f0fff4;
+    background: var(--bg-card);
 }
 
 .kpi-value {
@@ -242,7 +244,7 @@ input[type="number"]:focus {
 }
 
 .kpi-box.financial .kpi-value {
-    color: var(--money);
+    color: var(--danger);
 }
 
 .kpi-label {
@@ -255,7 +257,7 @@ input[type="number"]:focus {
 .kpi-unit {
     font-size: 0.8rem;
     font-weight: bold;
-    color: var(--secondary);
+    color: var(--text-light);
 }
 
 /* Alerts */
@@ -269,26 +271,26 @@ input[type="number"]:focus {
 }
 
 .alert-danger {
-    background-color: #fadbd8;
-    color: #c0392b;
-    border-left: 5px solid #c0392b;
+    background-color: #444;
+    color: var(--danger);
+    border-left: 5px solid var(--danger);
 }
 
 .alert-success {
-    background-color: #d5f5e3;
-    color: #27ae60;
-    border-left: 5px solid #27ae60;
+    background-color: #444;
+    color: var(--success);
+    border-left: 5px solid var(--success);
 }
 
 .alert-info {
-    background-color: #d6eaf8;
-    color: #2980b9;
-    border-left: 5px solid #2980b9;
+    background-color: #444;
+    color: var(--primary);
+    border-left: 5px solid var(--primary);
 }
 
 /* Tables */
 .table-container {
-    background: white;
+    background: var(--bg-card);
     border-radius: var(--border-r);
     box-shadow: var(--shadow);
     overflow: hidden;
@@ -304,11 +306,11 @@ th,
 td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #555;
 }
 
 th {
-    background-color: #f8f9fa;
+    background-color: #222;
     color: var(--text-main);
     font-weight: 600;
     font-size: 0.9rem;
@@ -325,13 +327,13 @@ tr:last-child td {
 .num-cell {
     font-family: 'Courier New', monospace;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--text-light);
 }
 
 .money-cell {
     font-family: 'Courier New', monospace;
     font-weight: 600;
-    color: var(--money);
+    color: var(--danger);
 }
 
 @media (max-width: 768px) {
@@ -343,5 +345,13 @@ tr:last-child td {
 
     .kpi-grid {
         grid-template-columns: 1fr;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .table-container {
+        overflow-x: auto;
     }
 }

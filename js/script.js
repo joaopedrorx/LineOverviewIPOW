@@ -181,7 +181,7 @@ function calcularTudo() {
             <td>+ Embalagem (Cartão)</td>
             <td class="money-cell">${fmtMoney(cost_Gap5_6)}</td>
         </tr>
-        <tr style="background-color:#f8f9fa; font-weight:bold;">
+        <tr style="background-color:#333333; font-weight:bold;">
             <td colspan="4">TOTAL QUEBRA (FÍSICA)</td>
             <td class="money-cell">${fmtMoney(cost_Gap1 + cost_Gap2 + cost_Gap3 + cost_Gap4 + cost_Gap5_6)}</td>
         </tr>
@@ -202,7 +202,7 @@ function calcularTudo() {
             <td class="num-cell">${fmtVol(refugo_rot * CONST.VOL_UN)}</td>
             <td class="money-cell">${fmtMoney(cost_Refugo_Rot)}</td>
         </tr>
-            <tr style="background-color:#f8f9fa; font-weight:bold;">
+            <tr style="background-color:#333333; font-weight:bold;">
             <td colspan="3">TOTAL REFUGO</td>
             <td class="money-cell">${fmtMoney(cost_Refugo_Inspt + cost_Refugo_Rot)}</td>
         </tr>
